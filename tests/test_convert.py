@@ -14,7 +14,6 @@ def test_f_to_c():
 def test_km_to_miles():
     assert km_to_miles(10) == pytest.approx(6.21371, rel=1e-4)
 
-
 def test_miles_to_km():
     assert miles_to_km(1) == pytest.approx(1.609344)
 
