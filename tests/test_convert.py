@@ -1,6 +1,6 @@
 import pytest
 from fixit.convert import (celsius_to_fahrenheit, fahrenheit_to_celsius,
-                           km_to_miles, miles_to_km)
+                           km_to_miles, miles_to_km, feet_to_meters, meters_to_feet)
 
 
 def test_c_to_f():
@@ -18,3 +18,11 @@ def test_km_to_miles():
 @pytest.mark.xfail(reason="Known bug: miles_to_km divides instead of multiplies")
 def test_miles_to_km():
     assert miles_to_km(1) == pytest.approx(1.609344)
+
+
+def test_ft_to_m():
+    assert feet_to_meters(1) == pytest.approx(0.3048)
+
+
+def test_m_to_ft():
+    assert meters_to_feet(1) == pytest.approx(3.280839895)
