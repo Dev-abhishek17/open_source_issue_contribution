@@ -9,8 +9,6 @@ CONVERSIONS = {
     "f2c": convert.fahrenheit_to_celsius,
     "km2mi": convert.km_to_miles,
     "mi2km": convert.miles_to_km,
-    "m2ft": convert.meters_to_feet,
-    "ft2m": convert.feet_to_meters
 }
 
 
