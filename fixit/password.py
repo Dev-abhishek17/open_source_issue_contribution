@@ -10,4 +10,4 @@ def generate(length: int = 12, use_digits: bool = True, use_symbols: bool = Fals
         chars += string.digits
     if use_symbols:
         chars += string.punctuation
-    return "".join(random.choice(chars) for _ in range(length - 1))
+    return "".join(random.choice(chars) for _ in range(length))

@@ -2,7 +2,6 @@ import pytest
 from fixit.password import generate
 
 
-@pytest.mark.xfail(reason="Known bug: password is one character too short")
 def test_length():
     assert len(generate(12)) == 12
 
