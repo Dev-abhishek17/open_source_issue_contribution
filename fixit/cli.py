@@ -44,25 +44,29 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv=None) -> int:
-    args = build_parser().parse_args(argv)
-    if args.command == "wc":
-        print(f"words={wordcount.count_words(args.text)} "
-              f"lines={wordcount.count_lines(args.text)} "
-              f"chars={wordcount.count_chars(args.text)}")
-    elif args.command == "convert":
-        print(CONVERSIONS[args.kind](args.value))
-    elif args.command == "password":
-        print(password.generate(args.length, use_symbols=args.symbols))
-    elif args.command == "uuid":
-        for _ in range(args.count):
-            print(uuid.uuid4())
-    elif args.command == "json":
-        print(jsonfmt.format_json(args.raw))
-    elif args.command == "palindrome":
-        print(textutils.is_palindrome(args.text))
-    elif args.command == "reverse":
-        print(textutils.reverse_words(args.text))
-    return 0
+    try:
+        args = build_parser().parse_args(argv)
+        if args.command == "wc":
+            print(f"words={wordcount.count_words(args.text)} "
+                f"lines={wordcount.count_lines(args.text)} "
+                f"chars={wordcount.count_chars(args.text)}")
+        elif args.command == "convert":
+            print(CONVERSIONS[args.kind](args.value))
+        elif args.command == "password":
+            print(password.generate(args.length, use_symbols=args.symbols))
+        elif args.command == "uuid":
+            for _ in range(args.count):
+                print(uuid.uuid4())
+        elif args.command == "json":
+            print(jsonfmt.format_json(args.raw))
+        elif args.command == "palindrome":
+            print(textutils.is_palindrome(args.text))
+        elif args.command == "reverse":
+            print(textutils.reverse_words(args.text))
+        return 0
+    except ValueError as e:
+        print(str(e), file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

@@ -10,7 +10,6 @@ def test_no_digits():
     assert not any(c.isdigit() for c in generate(50, use_digits=False))
 
 
-@pytest.mark.xfail(reason="Known bug: length < 1 is not validated")
 def test_invalid_length():
     with pytest.raises(ValueError):
         generate(0)
